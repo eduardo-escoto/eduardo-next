@@ -1,0 +1,10 @@
+.hide-text{
+    display:none;
+};
+.icon_desc {
+    display: inline;
+    font-size: 18px;
+};
+.svg-inline--fa {
+    font-size: 18px !important;
+};
