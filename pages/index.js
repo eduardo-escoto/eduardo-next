@@ -51,6 +51,7 @@ const BioHeader = () => {
           <Image
             className="border border-secondary rounded-circle"
             src="/images/me.jpg"
+            alt="picture of me!"
             width={220}
             height={220}
           />
@@ -65,7 +66,7 @@ const BioSection = () => (
     <div>
       <hr />
       <p>
-        Hey there! I'm Ed :) I am a Data Scientist at{" "}
+        Hey there! I&apos;m Ed :) I am a Data Scientist at{" "}
         <OutLink href="https://afiniti.com">Afiniti</OutLink> in Washington DC
         where my work focuses on Applied Artificial Intelligence. In my
         undergrad I completed a double major in Mathematics and Statistics at{" "}
@@ -100,6 +101,7 @@ function ProjectCard(props) {
               height={300}
               role="img"
               layout="responsive"
+              alt={props.description}
               // aria-label="Placeholder: Thumbnail"
               src={props.featuredImage}
             />
@@ -109,7 +111,7 @@ function ProjectCard(props) {
             <p className="card-text">{props.description}</p>
             <div className="d-flex justify-content-between align-items-center">
               <div className="btn-group">
-                <Link href={`/projects/${encodeURIComponent(props.id)}`}>
+                <Link href={`/projects/${encodeURIComponent(props.slug)}`}>
                   <a className="btn btn-sm btn-outline-secondary">Read More</a>
                 </Link>
                 <a
@@ -136,7 +138,7 @@ function ProjectCard(props) {
 
 function ProjectListSection({ allPostsData }) {
   const AllPosts = allPostsData.map((postData) => (
-    <ProjectCard {...postData} key={postData.id} />
+    <ProjectCard {...postData} key={postData.slug} />
   ));
   return (
     <div className="album pb-5 bg-light border-top">
@@ -156,7 +158,7 @@ function IndexPage(props) {
   return (
     <div>
       <div className="container-md pb-md-5 pb-sm-2">
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="col-lg-10 offset-lg-1">
           <BioHeader />
           <BioSection />

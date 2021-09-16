@@ -7,17 +7,6 @@ featuredImage: "/images/decision_trees_sq.png"
 githubUri: "https://gist.github.com/eduardo-exists/31906e24d283d537844b6a1ee09bfb83"
 ---
 
-<h1>{props.frontmatter.title}</h1>
-
-<a
-  href={props.frontmatter.githubUri}
-  class="link-secondary text-decoration-none"
-  target="_blank"
-  rel="noreferrer"
->
-  Project link here!
-</a>
-
 This project revolves around a very niche situation which arose in my work. The short version is that we build a binary decision tree using RPart in R in order to split our data into hierarchical groups. These groups have a specific meaning, so the tree is saved into a DataFrame with the number of records in each tree being saved in the leaf nodes. Each leaf node has some information about the group in that node. The key problem to solve, is how to get these values, propogated up from the leaf nodes, to also exists in the intermediate splits.
 
 What this ends up looking like, is a Dataframe with as many rows as there are splits. The issue then is that performing any kind of traditional tree-based traversal is a pain. A tree data structure is not provided, so I needed to be creative in how to populate these.

@@ -7,24 +7,13 @@ featuredImage: "/images/model_square.png"
 githubUri: "https://github.com/eduardo-exists/text-embeddings-model-pipeline"
 ---
 
-<h1>{props.frontmatter.title}</h1>
-
-<a
-  href={props.frontmatter.githubUri}
-  class="link-secondary text-decoration-none"
-  target="_blank"
-  rel="noreferrer"
->
-  Project link here!
-</a>
-
 This project contains a complete model pipeline that is ready to deploy -- after some configuration of course. It reads in data from a data source at the time of training or prediction, and then outputs those predictions to a destination table. Additionally, it will bulk predict based on the number of days given in the configuration files, and only re-train after a specified number of days. This design hinges on it being schedule to run, once a day, and perform a set of bulk predictions, and is not focused around real-time predictions.
 
 ## The Model
 
 This model was designed to intake multiple text sources that can have varying semantic meanings, learning word embeddings for each source. A word embedding is a numerical representations of a word. These can be learned in context to a target variable. In addition to text sources, Categorical and Numerical data are also handled, and make up a side branch of the Neural Network. Below, is a diagram of the model. In this specific model graph, there are two text sources. In practice, there can be an arbitrary amount of them.
 
-![Model](../images/model.png)
+<img alt="Model" width={500} height={500} layout = "responsive" src="/images/model.png" />
 
 Another key facet of this model, is the recurrent aspect which is handled by the GRU layers. GRU's are useful for learning longer sequences, as they learn what information to keep, and what to forget as the sequence is unrolled through time.
 

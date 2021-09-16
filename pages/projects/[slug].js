@@ -3,37 +3,67 @@
 // import { graphql } from "gatsby"; // highlight-line
 // import { MDXRenderer } from "gatsby-plugin-mdx";
 // import { MDXProvider } from "@mdx-js/react"
+import { getSortedProjectsData, getProjectByID } from "../../lib/projects";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from "next-mdx-remote";
+import Image from "next/image";
 
-// const MyBlockquote = (props) => <blockquote class="blockquote" {...props}/>
+const ResponsiveImage = (props) => (
+  <Image alt={props.alt} layout="responsive" {...props} />
+);
 
-const ProjectPage = (props) => {
-  console.log(props)
-  return (
-    // <div>
-    //   <div class="container-md py-3">
-    //     <Navbar />
-    //         <div class="col-md-10 offset-md-1 px-0 pt-2">
-    //           {/* <MDXProvider components={{blockquote: MyBlockquote}}> */}
-    //             <MDXRenderer frontmatter={props.data.mdx.frontmatter}>{props.data.mdx.body}</MDXRenderer>
-    //             {/* </MDXProvider> */}
-    //     </div>
-    //   </div>
-    // </div>
-    <a>sfoisdpkp</a>
-  );
+const components = {
+  img: ResponsiveImage,
+  // h1: Heading.H1,
+  // h2: Heading.H2,
+  // p: Text,
+  // code: Pre,
+  // inlineCode: Code
 };
 
-// export const query = graphql`
-//   query ($id: String) {
-//     mdx(id: { eq: $id }) {
-//       frontmatter {
-//         title
-//         date(formatString: "MMMM D, YYYY")
-//         githubUri
-//       }
-//       body
-//     }
-//   }
-// `;
+function Project({ source, frontMatter }) {
+  return (
+    <>
+      <h1>{frontMatter.title}</h1>
 
-export default ProjectPage;
+      <a
+        href={frontMatter.githubUri}
+        className="link-secondary text-decoration-none"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Project link here!
+      </a>
+
+      <MDXRemote {...source} components={components} />
+    </>
+  );
+}
+
+export async function getStaticPaths() {
+  const projects = getSortedProjectsData();
+
+  return {
+    paths: projects.map((project) => {
+      return {
+        params: {
+          slug: project.slug,
+        },
+      };
+    }),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const { content, data } = getProjectByID(params.slug);
+  const mdxSource = await serialize(content, { scope: data });
+  return {
+    props: {
+      source: mdxSource,
+      frontMatter: data,
+    },
+  };
+}
+
+export default Project;
