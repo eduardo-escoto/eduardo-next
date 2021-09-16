@@ -27,23 +27,27 @@ function useMediaQuery(query) {
 }
 
 const pageNavigationLinks = (router) => [
-  { text: "About", uri: "/", onClick: returnToHome(router)},
-  { text: "Projects", uri: "/#projects"},
+  { text: "About", uri: "/", onClick: returnToHome(router) },
+  { text: "Projects", uri: "/#projects" },
   // { text: "Notebooks", }
   // { text: "Featured Blogs", uri: "/#projects", customClasses: ""},
   // { text: "Blogs", uri:"/blogs", customClasses: " disabled"}
 ];
 
 const siteNavigationLinks = [
-  { text: "All Projects", uri: "/projects"},
-  { text: "All Notebooks", uri: "/notebooks"}
+  { text: "All Projects", uri: "/projects" },
+  { text: "All Notebooks", uri: "/notebooks" },
   // { text: "Blogs", uri: "/projects", customClasses: ""},
 ];
 
 const PageNavigationListItem = ({ text, uri, customClasses, onClick }) => (
   <li className="nav-item">
     <Link href={uri}>
-      <a aria-current="page" className={`nav-link ${customClasses}`} onClick={onClick}>
+      <a
+        aria-current="page"
+        className={`nav-link ${customClasses}`}
+        onClick={onClick}
+      >
         {text}
       </a>
     </Link>
@@ -74,8 +78,9 @@ function SocialsLinksListItem({ type, uri, icon, isPageWide }) {
 
 function returnToHome(router) {
   return (e) => {
-  e.preventDefault();
-  router.push('/').then(() => window.scrollTo(0, 0));}
+    e.preventDefault();
+    router.push("/").then(() => window.scrollTo(0, 0));
+  };
 }
 
 const Navbar = () => {
@@ -90,17 +95,19 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-md navbar-light bg-white fixed-top border-bottom">
       <div className="container-lg">
-        <a
-          style={{ fontSize: "25px" }}
-          className="navbar-brand"
-          onClick={returnToHome(router)}
-        >
-          <EdIcon
-            width="60"
-            className="d-inline-block align-text-center edIcon me-3"
-          />
-          Eduardo Escoto
-        </a>
+        <Link href="/" >
+          <a
+            style={{ fontSize: "25px" }}
+            className="navbar-brand"
+            onClick={returnToHome(router)}
+          >
+            <EdIcon
+              width="60"
+              className="d-inline-block align-text-center edIcon me-3"
+            />
+            Eduardo Escoto
+          </a>
+          </Link>
         <button
           className="navbar-toggler"
           type="button"
