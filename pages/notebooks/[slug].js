@@ -1,9 +1,13 @@
 import * as React from "react";
 import { getAllNotebooks, getNotebookBySlug } from "../../lib/notebooks";
 import NotebookRender from "@rafaelquintanilha/notebook-render";
+import RenderNotebook from "../../src/RenderNB";
+// import JupyterViewer from "react-jupyter-notebook"
 
 function Notebook(props) {
-  return <NotebookRender notebook={props.source} />;
+  return <React.StrictMode><RenderNotebook rawIpynb={props.source} /></React.StrictMode>
+  // return <RenderNotebook {...props.source} />
+  // return <NotebookRender notebook={props.source} />;
 }
 
 export async function getStaticPaths() {

@@ -32,8 +32,11 @@
     "gray-matter": "^4.0.3",
     "next": "latest",
     "next-mdx-remote": "^3.0.4",
+    "next-transpile-modules": "^8.0.0",
     "react": "latest",
     "react-dom": "latest",
+    "react-jupyter-notebook": "^0.3.2",
+    "sass": "^1.41.0",
     "sharp": "^0.29.1"
   },
   "devDependencies": {

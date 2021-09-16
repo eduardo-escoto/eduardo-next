@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../styles/codemirror.css";
 import "../styles/index.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import 'katex/dist/katex.min.css';
+import 'react-jupyter-notebook/dist/JupyterViewer.scss';
 import { config } from "@fortawesome/fontawesome-svg-core";
 import Navbar from "../src/components/Navbar";
 

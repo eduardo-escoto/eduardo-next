@@ -83,7 +83,7 @@ function returnToHome(router) {
   };
 }
 
-const Navbar = () => {
+function Navbar(props) {
   const router = useRouter();
   const isPageWide = useMediaQuery("(min-width: 767px)");
   const siteNavigationLinksList = siteNavigationLinks.map((navLink) => (
