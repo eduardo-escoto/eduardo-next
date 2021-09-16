@@ -80,10 +80,10 @@ function ProjectListSection({ allPostsData }) {
   );
 }
 
-function Projects(props) {
+function ProjectsPage(props) {
   return (
     <ProjectListSection {...props} />
   );
 };
 
-export default Projects;
+export default ProjectsPage;

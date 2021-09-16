@@ -29,12 +29,14 @@ function useMediaQuery(query) {
 const pageNavigationLinks = (router) => [
   { text: "About", uri: "/", onClick: returnToHome(router)},
   { text: "Projects", uri: "/#projects"},
+  // { text: "Notebooks", }
   // { text: "Featured Blogs", uri: "/#projects", customClasses: ""},
   // { text: "Blogs", uri:"/blogs", customClasses: " disabled"}
 ];
 
 const siteNavigationLinks = [
-  { text: "All Projects", uri: "/projects", customClasses: "" },
+  { text: "All Projects", uri: "/projects"},
+  { text: "All Notebooks", uri: "/notebooks"}
   // { text: "Blogs", uri: "/projects", customClasses: ""},
 ];
 

@@ -6,7 +6,6 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { getSortedProjectsData } from "../lib/projects";
-import Navbar from "../src/components/Navbar";
 
 export async function getStaticProps() {
   const allPostsData = getSortedProjectsData();
