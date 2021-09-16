@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 
 export default function Custom404() {
   const router = useRouter()
-  console.log(router)
   return (
     <div>
       <div className="container-md pb-md-5 pb-sm-2">

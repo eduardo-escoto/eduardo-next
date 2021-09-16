@@ -1,8 +1,3 @@
-// import * as React from "react";
-// import Navbar from "../../components/navbar";
-// import { graphql } from "gatsby"; // highlight-line
-// import { MDXRenderer } from "gatsby-plugin-mdx";
-// import { MDXProvider } from "@mdx-js/react"
 import { getSortedProjectsData, getProjectByID } from "../../lib/projects";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
