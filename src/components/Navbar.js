@@ -26,13 +26,15 @@ function useMediaQuery(query) {
   return matches;
 }
 
-const pageNavigationLinks = (router) => [
-  { text: "About", uri: "/", onClick: returnToHome(router) },
-  { text: "Projects", uri: "/#projects" },
-  // { text: "Notebooks", }
-  // { text: "Featured Blogs", uri: "/#projects", customClasses: ""},
-  // { text: "Blogs", uri:"/blogs", customClasses: " disabled"}
-];
+function pageNavigationLinks(router) {
+  return [
+    { text: "About", uri: "/", onClick: returnToHome(router) },
+    { text: "Projects", uri: "/#projects" },
+    // { text: "Notebooks", }
+    // { text: "Featured Blogs", uri: "/#projects", customClasses: ""},
+    // { text: "Blogs", uri:"/blogs", customClasses: " disabled"}
+  ];
+}
 
 const siteNavigationLinks = [
   { text: "All Projects", uri: "/projects" },
@@ -95,7 +97,7 @@ function Navbar(props) {
   return (
     <nav className="navbar navbar-expand-md navbar-light bg-white fixed-top border-bottom">
       <div className="container-lg">
-        <Link href="/" >
+        <Link href="/">
           <a
             style={{ fontSize: "25px" }}
             className="navbar-brand"
@@ -107,7 +109,7 @@ function Navbar(props) {
             />
             Eduardo Escoto
           </a>
-          </Link>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -151,6 +153,6 @@ function Navbar(props) {
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;
